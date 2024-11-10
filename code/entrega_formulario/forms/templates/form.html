@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		{% include "commons/bootstrap.html" %}
+		<title>Document</title>
+	</head>
+	<body>
+		<h1>Novell Services Login</h1>
+        
+		<form action={% url 'validateForm' %} method="get">
+            <label for="username">Username</label><input type="text" name="username" id=""> <br>
+            <label for="password">Password</label><input type="text" name="password" id=""> <br>
+            <label for="city">City of employment:</label><input type="text" name="city" id=""> <br>
+            <select name="webServer" id=""> <br>
+                <option value="0">Apache</option> <br>
+                <option value="1">Nginx</option> <br>
+                <option value="2">LiteSpeed</option> <br>
+                <option value="3">Microsoft-IIS</option> <br>
+            </select> <br>
+            <label for="role">Specify your role:</label> <br>
+            <input type="radio" name="role" id="">Admin</input> <br>
+            <input type="radio" name="role" id="">Engineer</input> <br>
+            <input type="radio" name="role" id="">Manager</input> <br>
+            <input type="radio" name="role" id="">Guest</input> <br>
+            <label for="">Single Sign-on to the following:</label> <br>
+            <input type="checkbox" name="mail" id="">Mail <br>
+            <input type="checkbox" name="payroll" id="">Payroll <br>
+            <input type="checkbox" name="selfService" id="">Self-Service <br>
+            <input type="submit" value="Submit">
+        </form>
+	</body>
+</html>
