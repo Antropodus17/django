@@ -8,7 +8,8 @@
 	</head>
 	<body>
 		<h1>Novell Services Login</h1>
-        
+        {{error}} <br>
+        {{tipo}}
 		<form action={% url 'validateForm' %} method="get">
             <label for="username">Username</label><input type="text" name="username" id=""> <br>
             <label for="password">Password</label><input type="text" name="password" id=""> <br>

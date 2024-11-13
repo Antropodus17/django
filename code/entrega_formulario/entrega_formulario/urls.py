@@ -21,5 +21,5 @@ from forms import views
 urlpatterns = [
     path("", views.home, name="home"),
     path("form", views.form, name="form"),
-    path("", view=views.validateForm, name="validateForm"),
+    path("validate", view=views.validateForm, name="validateForm"),
 ]
