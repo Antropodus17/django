@@ -5,4 +5,8 @@ from .models import Project
 
 
 def home(request):
-    return render(request, "index.html", context={"projects": Project.objects.all()})
+    return render(
+        request,
+        "index-portfolio.html",
+        context={"projects": Project.objects.all()},
+    )
