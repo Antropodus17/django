@@ -9,7 +9,7 @@ def all_blogs(request):
     return render(
         request,
         "index-blog.html",
-        context={"blogs": Blog.objects.all().order_by("fecha")[:2]},
+        context={"blogs": Blog.objects.all().order_by("fecha")},
     )
 
 

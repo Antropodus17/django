@@ -7,6 +7,6 @@ from .models import Project
 def home(request):
     return render(
         request,
-        "index-portfolio.html",
+        "home.html",
         context={"projects": Project.objects.all()},
     )
