@@ -4,13 +4,15 @@
     
         <h1>Blogs</h1>
         <p>Sergio has written {{blogs.count}} blog{{blogs.count|pluralize}}.</p>
-        <img src={% static "img/morty.png" %} alt="morty">
         {% for blog in blogs %}
-        <section id='{{blog.id}}'>
-            <h5>{{blog}}</h5>
-            <p style='color: darkgray;	font-size: xx-small;'>{{blog.fecha|date:'F jS Y'}}</p>
-            <p>{{blog.description|safe}}</p>
-        </section>    
-        {% endfor %}
+        <a href={%url 'blog:details' blog.id%} style='text-decoration: transparent; color: initial;'>
+
+            <section id='{{blog.id}}' class='row justify content center'>
+                <h5>{{blog}}</h5>
+                <p style='color: darkgray;	font-size: xx-small;'>{{blog.fecha|date:'F jS Y'}}</p>
+                <p>{{blog.description|safe}}</p>
+            </section>    
+        </a>
+            {% endfor %}
     
 {%endblock%}

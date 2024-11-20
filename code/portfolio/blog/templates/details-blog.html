@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <a href={%  url "blog:all_blogs"%}>{{blog.title}}</a>
-    
-</body>
-</html>
+{% extends "bootstrap/main.html" %}
+{% load static %}
+{% block content%}
+
+<div class='container-fluid align '>
+    <h1>{{blog.title}}</h1>
+    <div class='text-secondary m-4'>{{blog.fecha}}</div>
+    <div class='text-bigger'>{{blog.description}}</div>
+</div>
+
+ {%endblock %}
