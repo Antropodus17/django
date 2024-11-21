@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import apps
+import sys
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +27,16 @@ SECRET_KEY = "django-insecure-(f(9bk&+q08unzlxqam$4hk9+g@j5@t6n%p4s-@o$0x(p$9gyj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.2/howto/static-files/
+
+STATIC_URL = "static/"
+STATICFILES_DIRS = [BASE_DIR / STATIC_URL]
+MEDIA_URL = "media/"
+MEDIA_ROOT = BASE_DIR / MEDIA_URL
 
 
 # Application definition
@@ -39,6 +49,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "apps.calculator",
+    "apps.blog",
 ]
 
 MIDDLEWARE = [
@@ -56,7 +67,9 @@ ROOT_URLCONF = "satisfactory_calculator.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            BASE_DIR / STATIC_URL / "templates/",
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -114,12 +127,10 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-
-STATIC_URL = "static/"
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+sys.path.append(os.path.join(BASE_DIR, "apps"))
