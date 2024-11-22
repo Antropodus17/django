@@ -1,0 +1,15 @@
+{% extends "bootstrap/calculator/main.html" %}
+{% block content %}
+<h1>Energy Calculator</h1>
+<form>
+    <select name="generator" >
+        {% for gen in generator %}
+            <option value={{generator.id}}>{{generator.name}}</option>
+        {% endfor %}
+    </select>
+    <button>Add</button>
+    {% for gen in genrators %}
+
+    {% endfor %}
+</form>
+{% endblock content %}

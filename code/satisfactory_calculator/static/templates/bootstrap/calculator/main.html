@@ -8,13 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+    {% include "bootstrap/components/nav.html" %}
     <div class="container">
-        {% include "bootstrap/components/nav.html" %}
-        {% block mainContent%}
-        {% endblock mainContent %}
+        {% block content%}
+        {% endblock content %}
     </div>
-
     {% include "bootstrap/components/footer.html" %}
+
     
 </body>
 </html>

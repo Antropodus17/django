@@ -1,0 +1,14 @@
+{% extends "bootstrap/main.html" %}
+{% load static %}
+{% block mainContent %}
+<h1>Calculator</h1>
+<h2>Select the calculator to use:</h2>
+<section>
+    <a href={% url "calculator:energy" %}>
+        <title>Energy Calculator</title>
+        <img src={% static "img/energy_generator" %} alt="Energy Generator">
+        <p>A calculator for the total energy of the generator at x% rendimiento</p>
+    </a>
+</section>
+{% endblock mainContent %}
+
