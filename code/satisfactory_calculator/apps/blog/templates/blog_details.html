@@ -1,0 +1,15 @@
+{% extends "bootstrap/main.html" %}
+{% load static %}
+{% block mainContent %}
+<link rel="stylesheet" href={% static "styles/blogs/blogs.css" %}>
+<h1>{{blog.name}}</h1><br><br>
+</a>
+{% if blog.image %}
+    <img src={{blogs.image.url}} alt=""><br><br>
+{% endif %}
+{% if blogs.url %}
+    <a href="{{blogs.url}}">Enlace blog</a>
+{% endif %}
+<span class="fecha">{{blog.date|date:"F, d, Y-H:i:s"}}</span><br><br>
+<p>{{blog.description}}</p><br>
+{% endblock mainContent %}

@@ -5,7 +5,7 @@ from django.db import models
 
 class Blogs(models.Model):
     name = models.CharField(max_length=50)
-    image = models.ImageField(upload_to="models/blogs/img")
+    image = models.ImageField(upload_to="img/blog", blank=True)
     description = models.TextField()
-    date = models.DateTimeField(auto_now_add=False)
-    url = models.URLField(max_length=200)
+    date = models.DateTimeField(auto_now_add=True)
+    url = models.URLField(max_length=200, blank=True)

@@ -1,15 +1,32 @@
 {% extends "bootstrap/calculator/main.html" %}
+{% load static %}
 {% block content %}
-<h1>Energy Calculator</h1>
-<form>
-    <select name="generator" >
-        {% for gen in generator %}
-            <option value={{generator.id}}>{{generator.name}}</option>
+    <h1>Energy Calculator</h1>
+    <form>
+        <select id='select' name="generator" >
+            {% for gen in generators %}
+                <option value={{gen.id}}>{{gen.name}}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <button id='adder'>Add</button>
+    </form>
+    <div id='main'>
+    </div>
+    <span id='total'></span>
+    <div id='plantilla' class='oculto'>
+        {% for gen in generators %}
+        <section data-generator-id={{gen.id}} data-generator-energy={{gen.powerGenerated}}>
+            <h4>{{gen.name}}</h4><br>
+            <img src="{{ gen.img.url }}" alt='{{gen.name}}'><br><br>
+            <label for="uds">Cantidad:</label><br><input type="number" name='uds'><br><br>
+            <label for="ef">Eficiencia (0-250):</label><br><input type="number" name='ef'>
+            <button name='calculate'> Calcular</button>
+            <div name='answer' class="answer">
+                <span></span>
+            </div>
+        </section>
         {% endfor %}
-    </select>
-    <button>Add</button>
-    {% for gen in genrators %}
-
-    {% endfor %}
-</form>
+    </div>
+    <script src={% static "scripts/generadores.js" %} defer></script>
 {% endblock content %}

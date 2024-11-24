@@ -1,5 +1,22 @@
 {% extends "bootstrap/main.html" %}
+{% load static %}
 
 {% block mainContent %}
-<h1>Welcome to Blogs</h1>
+<link rel="stylesheet" href="{% static "styles/blogs/blogs.css" %}">
+<h1>Welcome </h1>
+<h2>Blogs</h2>
+<div class="blogs">
+    {% for blog in blogs %}
+    <section>
+        <a href={% url "blog:details" blog.id %}>
+            <h3>{{blog.name}}</h3><br><br>
+        </a>
+        {% if blog.image %}
+            <img src={{blogs.image.url}} alt=""><br><br>
+        {% endif %}
+        <span class="fecha">{{blog.date|date:"F, d, Y-H:i:s"}}</span><br><br>
+        <p>{{blog.description}}</p><br>
+    </section>
+    {% endfor %}
+</div>
 {% endblock mainContent %}

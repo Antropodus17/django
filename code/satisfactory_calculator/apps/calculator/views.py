@@ -10,4 +10,5 @@ def home(request):
 
 def energy(request):
     generators = Generator.objects.all()
+
     return render(request, "generators.html", context={"generators": generators})
