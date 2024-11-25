@@ -48,6 +48,21 @@ span {
 label {
 	font-size: larger;
 }
+.header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+h4 {
+	width: fit-content;
+}
+.close {
+	border: 2px solid black;
+}
+.close:hover {
+	cursor: pointer;
+}
 form {
 	font-size: large;
 	display: flex;

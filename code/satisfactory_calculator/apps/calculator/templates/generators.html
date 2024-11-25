@@ -17,7 +17,9 @@
     <div id='plantilla' class='oculto'>
         {% for gen in generators %}
         <section data-generator-id={{gen.id}} data-generator-energy={{gen.powerGenerated}}>
-            <h4>{{gen.name}}</h4><br>
+            <div class='header'>
+                <h4>{{gen.name}}</h4> <div class='close'>x</div>
+            </div><br>
             <img src="{{ gen.img.url }}" alt='{{gen.name}}'><br><br>
             <label for="uds">Cantidad:</label><br><input type="number" name='uds'><br><br>
             <label for="ef">Eficiencia (0-250):</label><br><input type="number" name='ef'>

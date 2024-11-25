@@ -15,7 +15,23 @@ function totalEnergy() {
 				.innerText.split(" ")[0];
 		}
 	}
-	total.innerText = `Total of energy: ${valorTotal} KW`;
+	if (valorTotal) {
+		total.innerText = `Total of energy: ${valorTotal} KW`;
+	} else {
+		total.innerText = "";
+	}
+}
+
+/**
+ *
+ * @param {Event} evento
+ */
+function removeGenerator(evento) {
+	evento.preventDefault();
+	if (evento.target.classList.contains("close")) {
+		evento.currentTarget.remove();
+	}
+	totalEnergy();
 }
 
 /**
@@ -73,6 +89,7 @@ function addGenerator(evento) {
 			const clon = plantilla.cloneNode(true);
 			div.append(clon);
 			clon.addEventListener("click", calcularEnergia);
+			clon.addEventListener("click", removeGenerator);
 		}
 	}
 }
