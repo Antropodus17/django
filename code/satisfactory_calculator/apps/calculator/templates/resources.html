@@ -1,0 +1,24 @@
+{% extends "bootstrap/calculator/resources.html" %}
+{% load static %}
+{% block content %}
+    <h1>Resources Calculator</h1>
+    <form method='GET' action={% url "calculator:resources" %}>
+        <label for="clave">Selecione el recurso:</label>
+        <select name="clave" >
+            {% for recurso in resources %}
+                {% if not recurso.basic %}
+                    <option value="{{recurso.id}}">{{recurso.name}}</option>
+                {% endif %}
+            {% endfor %}
+        </select><br><br>
+        <label for="cantidad">Cantidad</label>
+        <input type="number" name="cantidad" id="cantidad"><br><br>
+        <label for="recursivo">Recursivo</label>
+        <input type="checkbox" name="recursivo" id="caja">
+        <a href={% url "calculator:resources" %}><button>
+            Enviar
+        </button></a>
+    </form>
+    {{receta}}
+
+{% endblock content %}
