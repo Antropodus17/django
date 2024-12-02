@@ -4,7 +4,7 @@
 *.pyc
 __pycache__
 local_settings.py
-static/admin
+code/*/static/admin
 # db.sqlite3
 # media
 
