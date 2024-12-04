@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-jcsj3bj01x)o-g%us)uq3@4d27!z5y&ws%$)_i%-^8=8_7g)vk"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["a23sergiopn.pythonanywhere.com"]
 
 
 # Application definition
@@ -130,3 +130,8 @@ MEDIA_ROOT = BASE_DIR / MEDIA_URL
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+try:
+    from .local_settings import *
+except ImportError:
+    print("Error in the settings import")
