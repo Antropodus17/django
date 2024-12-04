@@ -3,12 +3,7 @@ services:
       build: .
       # entrypoint: ["tail", "-f", "/dev/null"]
       entrypoint:
-         [
-            "python3",
-            "satisfactory_calculator/manage.py",
-            "runserver",
-            "0.0.0.0:8000",
-         ]
+         ["python3", "portfolio/manage.py", "runserver", "0.0.0.0:8000"]
       volumes:
          - ./code:/code
       ports:
