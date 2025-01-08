@@ -1,0 +1,12 @@
+{% extends "apps/main.html" %}
+{% block content %}
+<h1>All Courses</h1>
+
+{% for c in cursos %}
+<a href={% url "courses:details" c.id %}>
+    <section>
+        <h2>{{c.name}}</h2>
+    </section>
+</a>
+{% endfor %}
+{% endblock content %}

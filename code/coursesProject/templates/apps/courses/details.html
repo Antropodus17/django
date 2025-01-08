@@ -1,0 +1,7 @@
+{% extends "apps/main.html" %}
+{% block content %}
+<h1>{{curso.name}}</h1>
+<img src="{{curso.photo.url}}" alt="imágen de {{curso.name}}">
+<p>{{curso.description|safe}}</p>
+
+{% endblock content %}

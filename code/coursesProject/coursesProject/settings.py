@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ["*"]
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
-STATICFILES_DIR = [BASE_DIR / "development" / STATIC_URL, BASE_DIR / STATIC_URL]
+STATICFILES_DIRS = [BASE_DIR / STATIC_URL]
 # STATIC_ROOT = BASE_DIR / STATIC_URL
 
 MEDIA_URL = "media/"
@@ -66,8 +66,8 @@ ROOT_URLCONF = "coursesProject.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "development" / STATIC_URL / "templates/"],
-        "APP_DIRS": False,
+        "DIRS": [BASE_DIR / "templates/"],
+        "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
