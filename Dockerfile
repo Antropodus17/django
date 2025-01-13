@@ -19,6 +19,7 @@ RUN echo 'alias makemigrations="python3 manage.py makemigrations"' >> /root/.bas
 RUN echo 'alias migrate="python3 manage.py migrate"' >> /root/.bashrc
 RUN echo 'alias shell="python3 manage.py shell"' >> /root/.bashrc
 RUN echo 'alias runserver="python3 manage.py runserver"' >> /root/.bashrc
+RUN echo 'alias createsuperuser="python3 manage.py createsuperuser"' >>/root/.bashrc
 
 # Ejecuta el comando para crear un nuevo proyecto Django
 # RUN django-admin startproject password_generator .
