@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}
+    Books
+{% endblock title %}
+{% block content %}
+    <ul>
+        {% for book in books %}
+            <li><p>{{book.title}} Rating: {{book.raiting}}</p></li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
