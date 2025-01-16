@@ -28,10 +28,20 @@ else
             echo "# Register your models here." >> apps/$2/admin.py # ADD A COMMENT
             echo "" >> apps/$2/admin.py # ADD A BLANK LINE
 
+            # CREATE THE ADMIN MODELS 
+
+            cat apps/$2/models.py | grep '^class .*(models.Model):' | cut -d ' ' -f 2 |cut -d '(' -f 1 | # GET THE MODELS NAMES
+            while read line; do # LOOP THE MODELS NAMES TO CREATE THE ADMIN MODEL
+                
+                echo "class ${line}Admin(admin.ModelAdmin):" >> apps/$2/admin.py; # CREATE THE ADMIN MODEL
+                echo "    pass" >> apps/$2/admin.py; # Make the pass
+                echo "" >> apps/$2/admin.py; # ADD A BLANK LINE
+            done
+
             cat apps/$2/admin.py | grep '^from .models import' | cut -d ' ' -f 4 | # GET THE MODELS NAMES AGAIN
             while read line; do # LOOP THE MODELS NAMES TO ADD THE REGISTER TO THE ADMIN.PY
                 echo "$line registered" # PRINT THE MODEL NAME
-                echo "admin.site.register($line)" >> apps/$2/admin.py;
+                echo "admin.site.register($line, ${line}Admin)" >> apps/$2/admin.py;
             done
         fi
     fi
