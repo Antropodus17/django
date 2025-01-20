@@ -9,6 +9,7 @@ def index(request):
     books = Book.objects.all().order_by("-raiting")
     num_books = books.count()
     avg_raiting = books.aggregate(Avg("raiting"), Min("raiting"))
+
     return render(
         request,
         "index_book.html",

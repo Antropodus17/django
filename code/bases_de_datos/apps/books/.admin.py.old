@@ -1,0 +1,48 @@
+@Mon Jan 20 10:35:22 UTC 2025
+from django.contrib import admin
+from .models import Author
+from .models import Book
+
+# Register your models here.
+
+
+class AuthorAdmin(admin.ModelAdmin):
+    pass
+
+
+class BookAdmin(admin.ModelAdmin):
+
+    prepopulated_fields = {"slug": ("title",)}
+    list_display = ("title", "author")
+
+
+admin.site.register(Author, AuthorAdmin)
+admin.site.register(Book, BookAdmin)
+%
+@Mon Jan 20 10:53:20 UTC 2025
+from django.contrib import admin
+from .models import Address
+from .models import Author
+from .models import Book
+
+# Register your models here.
+
+
+class AddressAdmin(admin.ModelAdmin):
+    pass
+
+
+class AuthorAdmin(admin.ModelAdmin):
+    pass
+
+
+class BookAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("title",)}
+    list_filter = ("title", "author")
+    list_display = ("title", "author")
+
+
+admin.site.register(Address, AddressAdmin)
+admin.site.register(Author, AuthorAdmin)
+admin.site.register(Book, BookAdmin)
+%
