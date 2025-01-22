@@ -22,7 +22,7 @@ class AuthorAdmin(admin.ModelAdmin):
 class BookAdmin(admin.ModelAdmin):
 
     prepopulated_fields = {"slug": ("title",)}
-    list_display = ("title", "author")
+    list_display = ("title", "author", "raiting")
 
 
 admin.site.register(Country, CountryAdmin)

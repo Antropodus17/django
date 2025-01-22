@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Posts
+{% endblock title %}
+
+{% block content %}
+<h1>Posts</h1>
+{% for post in posts  %}
+<a href={% url "details_post" post.slug %}>
+    <article>
+        <h2>{{post.title}}</h2>
+        <p>{{post.excerpt}}</p>
+        <span>{{post.date | date:"SHORT_DATE_FORMAT"}}</span>
+    </article>
+</a>
+{% endfor %}
+
+{% endblock content %}

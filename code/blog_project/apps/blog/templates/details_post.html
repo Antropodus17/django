@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Details{% endblock title %}
+
+{% block content %}
+<h1>{{post.title}}</h1>
+
+<h2>Author</h2>
+<a href="mailto:{{post.author.e_mail}}">{{post.author.first_name}} {{post.author.last_name}}</a>
+
+<h2></h2>
+{% for tag in tags %}
+
+{% endfor %}
+
+{% endblock content %}
