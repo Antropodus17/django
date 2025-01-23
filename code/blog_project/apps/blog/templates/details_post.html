@@ -1,16 +1,38 @@
 {% extends "base.html" %}
 
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href={% static "styles/details.css" %}>
+{% endblock styles %}
+
+
+
 {% block title %}Details{% endblock title %}
 
 {% block content %}
 <h1>{{post.title}}</h1>
+<h3>{{post.slug}}</h3>
+{% if post.author %}
+    <h2>Author</h2>
+    <a href="mailto:{{post.author.e_mail}}">{{post.author.first_name}} {{post.author.last_name}}</a>
 
-<h2>Author</h2>
-<a href="mailto:{{post.author.e_mail}}">{{post.author.first_name}} {{post.author.last_name}}</a>
+{% else %}
+    <h2>No author</h2>
+{% endif %}
 
-<h2></h2>
-{% for tag in tags %}
+<img src="{% static "media/"|add:post.image_name %}" alt="post.title">
+<span>{{post.date | date:"SHORT_DATE_FORMAT"}}</span>
+<span>{{post.excerpt}}</span>
+
+<p>{{post.content}}</p>
+<h2>Tags</h2>
+{% for tag in tags %} {% comment  %}tags is other parameter passed in the view like post{% endcomment %}
+
+    <li>{{tag.caption}}</li>
 
 {% endfor %}
+
+<a href="{% url "post_home" %}">HOME</a>
 
 {% endblock content %}

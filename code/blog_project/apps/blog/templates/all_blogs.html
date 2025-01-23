@@ -7,21 +7,19 @@
 {% endblock styles %}
 
 {% block title %}
-    Posts
+    All Posts
 {% endblock title %}
 
 {% block content %}
-<h1>Posts</h1>
-
-<img src="{% static "media/home.png" %}" alt="Imagen de django">
+<h1>All Posts</h1>
 
 <section>
-    <a href="{% url "all_posts" %}">
-        <button>View all blogs</button>
-    </a>
     {% for post in posts  %}
         {% include "includes/posts_show.html" %}
     {% endfor %}
 </section>
+
+
+<a href="{% url "post_home" %}">HOME</a>
 
 {% endblock content %}

@@ -18,9 +18,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from apps.blog import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.home, name="post_home"),
+    path("allBlogs/", views.allBlogs, name="all_posts"),
     path("<slug:slug>", views.details, name="details_post"),
 ]
+
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

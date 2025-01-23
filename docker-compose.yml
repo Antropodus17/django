@@ -1,5 +1,6 @@
 services:
    django:
+      hostname: django
       build: .
       entrypoint: ["tail", "-f", "/dev/null"]
       # entrypoint:
