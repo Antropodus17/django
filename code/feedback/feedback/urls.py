@@ -1,5 +1,5 @@
 """
-URL configuration for blog_project project.
+URL configuration for feedback project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -15,18 +15,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.contrib import admin  # type: ignore
-from django.urls import path  # type: ignore
-from apps.blog import views
-from django.conf import settings  # type: ignore
-from django.conf.urls.static import static  # type: ignore
+from django.contrib import admin
+from django.urls import path, include
+from apps.reviews import urls
 
-urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", views.home, name="post_home"),
-    path("<slug:slug>", views.details, name="details_post"),
-    path("allBlogs/", views.allBlogs, name="all_posts"),
-]
-
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns = [path("admin/", admin.site.urls), path("", include(urls))]

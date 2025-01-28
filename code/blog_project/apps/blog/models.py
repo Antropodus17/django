@@ -1,6 +1,6 @@
-from django.db import models
-from django.core.validators import MinLengthValidator
-from django.utils.text import slugify
+from django.db import models  # type: ignore
+from django.core.validators import MinLengthValidator  # type: ignore
+from django.utils.text import slugify  # type: ignore
 
 # Create your models here.
 
