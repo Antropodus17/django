@@ -1,15 +1,24 @@
 {% extends "base.html" %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href={% static "styles/form.css" %}>
+{% endblock styles %}
 
 {% block title %}Form{% endblock title %}
 
 {% block content %}
 
-
-<form  method="POST">
+<form action="/" method="POST">
+    {% for field in form %}
     {% csrf_token %}
-    <label for="username">Your name</label>
-    <input type="text" id="username" name="username">
-    <button>Submit</button>
+    <div class="form-control {% if field.errors %}error{% endif %}">
+        {{ field.label_tag }}
+        {{ field }}
+        {{ field.errors }}
+        
+    </div>
+    {% endfor %}
+    <button type="submit">Send</button>
 </form>
 
 
