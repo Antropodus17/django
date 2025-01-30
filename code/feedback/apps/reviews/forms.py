@@ -1,20 +1,39 @@
-from django import forms
+from django import forms  # type: ignore
+from .models import Review
 
 
-class ReviewForm(forms.Form):
-    user_name = forms.CharField(
-        label="Your name",
-        max_length=100,
-        error_messages={
-            "required": "U Bastard",
-            f"max_length": "No nobiliary titles, Please",
-        },
-    )
-    review_text = forms.CharField(label="Your feedback", widget=forms.Textarea)
-    rating = forms.IntegerField(label="Your rating", max_value=5)
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = "__all__"
+        labels = {
+            "user_name": "Enter your username",
+            "review_text": "Review Content",
+            "rating": "Your Raiting",
+        }
+        error_messages = {
+            "user_name": {
+                "required": "U Bastard",
+                "max_length": "No nobiliary titles, Please",
+            }
+        }
 
-    def __str__(self):
-        return super().__str__()
+    ############    WITH MODEL.FORM    #######
+
+
+#     user_name = forms.CharField(
+#         label="Your name",
+#         max_length=100,
+#         error_messages={
+#             "required": "U Bastard",
+#             f"max_length": "No nobiliary titles, Please",
+#         },
+#     )
+#     review_text = forms.CharField(label="Your feedback", widget=forms.Textarea)
+#     rating = forms.IntegerField(label="Your rating", max_value=5)
+
+#     def __str__(self):
+#         return super().__str__()
 
 
 class NovellServicesForm(forms.Form):
