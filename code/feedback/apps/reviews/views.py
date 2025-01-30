@@ -26,8 +26,15 @@ from .forms import ReviewForm, NovellServicesForm
 
 
 def home(request):
-    form = NovellServicesForm
-    return render(request, "apps/reviews/forms.html", {"form": form})
+    if request.POST:
+        form = NovellServicesForm(request.POST)
+        if form.is_valid:
+            # print(form.data.values)
+            for k, v in form.data.items():
+                print(f"{k}: {v}")
+    else:
+        form = NovellServicesForm()
+    return render(request, "apps/reviews/form.html", {"form": form})
 
 
 def thank_you(request):
