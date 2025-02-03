@@ -1,0 +1,13 @@
+@Mon Feb  3 08:56:57 UTC 2025
+from django.contrib import admin  # type:ignore
+from .models import Review
+
+# Register your models here.
+
+
+class ReviewAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(Review, ReviewAdmin)
+%
