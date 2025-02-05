@@ -1,0 +1,16 @@
+{% extends "students/base.html" %}
+
+{% block title %}Listado{% endblock title %}
+
+{% block content %}
+
+{% for student in students %}
+
+<article>
+    {{student.name}}
+    {{student.degree}}
+</article>
+
+{% endfor %}
+
+{% endblock content %}

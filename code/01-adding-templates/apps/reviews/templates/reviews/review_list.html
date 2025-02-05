@@ -1,0 +1,27 @@
+{% extends "reviews/base.html" %}
+
+
+{% block title %}Lista{% endblock title %}
+
+{% block content %}
+
+<ul>
+
+    {% for review in reviews %}
+    <li>
+        
+        <article id="{{review}}">
+            <h2>User:</h2>
+            <p>{{review.user_name}}</p>
+            <h2>Review:</h2>
+            <p>{{review.review_text}}</p>
+            <h2>Rating:</h2>
+            <p>{{review.rating}}</p>
+        </article>
+    </li>
+    
+    {% endfor %}
+
+</ul>
+
+{% endblock content %}
