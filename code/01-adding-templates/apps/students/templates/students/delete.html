@@ -1,0 +1,15 @@
+{% extends "students/base.html" %}
+
+{% block title %}Listado{% endblock title %}
+
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{object}}
+        {{ form.as_p }}
+        <input type="submit" value="Confirm">
+    </form>
+    <div>
+    </div>
+{% endblock content %}

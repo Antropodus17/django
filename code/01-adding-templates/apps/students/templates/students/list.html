@@ -9,6 +9,8 @@
 <article>
     {{student.name}}
     {{student.degree}}
+    <a href={% url "students:delete" student.id %}><button>Delete</button></a>
+    <a href={% url "students:update" student.id %}><button>Update</button></a>
 </article>
 
 {% endfor %}
