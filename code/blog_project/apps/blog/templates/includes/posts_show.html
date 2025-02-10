@@ -3,7 +3,7 @@
 <a href={% url "details_post" post.slug %}>
     <article>
         
-        <img src="{% static "media/"|add:post.image_name %}" alt="{{post.title}}">
+    <img src={{post.image.url}} alt={{post.title}}>
     <h2>{{post.title}}</h2>
     <p>{{post.excerpt}}</p>
     <span>{{post.date | date:"SHORT_DATE_FORMAT"}}</span>

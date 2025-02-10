@@ -21,7 +21,7 @@
     <h2>No author</h2>
 {% endif %}
 
-<img src="{% static "media/"|add:post.image_name %}" alt="post.title">
+<img src={{post.image.url}} alt="{{post.title}}">
 <span>{{post.date | date:"SHORT_DATE_FORMAT"}}</span>
 <span>{{post.excerpt}}</span>
 

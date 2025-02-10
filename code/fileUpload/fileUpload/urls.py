@@ -1,5 +1,5 @@
 """
-URL configuration for blog_project project.
+URL configuration for fileUpload project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -15,18 +15,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.contrib import admin  # type: ignore
-from django.urls import path  # type: ignore
-from apps.blog import views
-from django.conf import settings  # type: ignore
-from django.conf.urls.static import static  # type: ignore
+from django.contrib import admin
+from django.urls import path
+from django.conf.urls.static import static
+from django.conf import settings
+
+from apps.uploader import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.Home.as_view(), name="post_home"),
-    path("<slug:slug>", views.Details.as_view(), name="details_post"),
-    path("allBlogs/", views.AllBlogs.as_view(), name="all_posts"),
-]
-
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path("", views.CreateUserProfile.as_view()),
+    path("profiles/", views.ListProfiles.as_view()),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
