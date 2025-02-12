@@ -1,8 +1,8 @@
+@Wed Feb 12 08:44:55 UTC 2025
 from django.contrib import admin
 from .models import Tag
 from .models import Author
 from .models import Post
-from .models import Comment
 
 # Register your models here.
 
@@ -21,11 +21,7 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
 
 
-class CommentAdmin(admin.ModelAdmin):
-    pass
-
-
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Post, PostAdmin)
-admin.site.register(Comment, CommentAdmin)
+%

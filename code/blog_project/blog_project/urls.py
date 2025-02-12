@@ -26,6 +26,7 @@ urlpatterns = [
     path("", views.Home.as_view(), name="post_home"),
     path("<slug:slug>", views.Details.as_view(), name="details_post"),
     path("allBlogs/", views.AllBlogs.as_view(), name="all_posts"),
+    # path("register/comment/", views.RegisterComment.as_view(), name="registerComment"),
 ]
 
 

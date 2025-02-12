@@ -5,10 +5,6 @@ from django.utils.text import slugify  # type: ignore
 # Create your models here.
 
 
-class Comment(models.Model):
-    pass
-
-
 class Tag(models.Model):
     caption = models.CharField(max_length=20)
 
@@ -43,3 +39,12 @@ class Post(models.Model):
     # def save(self, *args, **kwargs):
     #     self.slug = slugify(self.title)
     #     return super().save(*args, **kwargs)
+
+
+class Comment(models.Model):
+    user_name = models.CharField(max_length=120)
+    user_email = models.EmailField(max_length=254)
+    text = models.TextField(max_length=400)
+    post = models.ForeignKey(
+        Post, related_name="comments", verbose_name="post", on_delete=models.CASCADE
+    )

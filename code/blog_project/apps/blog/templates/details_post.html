@@ -11,6 +11,7 @@
 {% block title %}Details{% endblock title %}
 
 {% block content %}
+
 <h1>{{post.title}}</h1>
 <h3>{{post.slug}}</h3>
 {% if post.author %}
@@ -25,13 +26,26 @@
 <span>{{post.date | date:"SHORT_DATE_FORMAT"}}</span>
 <span>{{post.excerpt}}</span>
 
-<p>{{post.content}}</p>
+<p>{{post.content | linebreaks}}</p>
 <h2>Tags</h2>
-{% for tag in tags %} {% comment  %}tags is other parameter passed in the view like post{% endcomment %}
+{% for tag in tags %} 
 
     <li>{{tag.caption}}</li>
 
+{% endfor %} 
+<h2>Comments</h2>
+{% for comment in comments %}
+<p>{{comment.text}}</p>
+<span>{{comment.user_name}}|{{comment.user_email}}</span>
 {% endfor %}
+
+<form action="{% url "details_post" post.slug %}" method="post">
+    {% csrf_token %}
+    {{comment_form}}
+    <button>Create comment</button>
+</form>
+
+
 
 <a href="{% url "post_home" %}">HOME</a>
 
