@@ -11,7 +11,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copia el código del proyecto al directorio de trabajo en el contenedor
-COPY . /code/
+COPY ./code/ /code/
 
 
 # Añade alias basicos para el django

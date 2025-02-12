@@ -5,6 +5,10 @@ from django.utils.text import slugify  # type: ignore
 # Create your models here.
 
 
+class Comment(models.Model):
+    pass
+
+
 class Tag(models.Model):
     caption = models.CharField(max_length=20)
 

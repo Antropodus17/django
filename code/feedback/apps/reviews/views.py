@@ -1,6 +1,6 @@
 from django.shortcuts import render  # type: ignore
 from django.http import HttpResponseRedirect  # type: ignore
-import json
+
 
 # from django.views import View
 
