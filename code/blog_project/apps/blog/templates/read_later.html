@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href={% static "styles/details.css" %}>
+{% endblock styles %}
+{% block content %}
+
+<a href="{% url "post_home" %}">HOME</a>
+<section>
+    {% for post in posts %}
+        {% include "includes/posts_show.html" %}
+    {% endfor %}
+</section>
+
+{% endblock content %}

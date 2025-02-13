@@ -24,9 +24,10 @@ from django.conf.urls.static import static  # type: ignore
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.Home.as_view(), name="post_home"),
-    path("<slug:slug>", views.Details.as_view(), name="details_post"),
+    path("details/<slug:slug>", views.Details.as_view(), name="details_post"),
     path("allBlogs/", views.AllBlogs.as_view(), name="all_posts"),
     # path("register/comment/", views.RegisterComment.as_view(), name="registerComment"),
+    path("readLater", views.ReadLaterView.as_view(), name="read_later"),
 ]
 
 

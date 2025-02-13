@@ -19,6 +19,9 @@
     <a href="{% url "all_posts" %}">
         <button>View all blogs</button>
     </a>
+    <a href="{% url "read_later" %}">
+        <button>Read Later List</button>
+    </a>
     {% for post in posts  %}
         {% include "includes/posts_show.html" %}
     {% endfor %}

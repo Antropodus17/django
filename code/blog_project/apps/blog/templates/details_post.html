@@ -33,6 +33,15 @@
     <li>{{tag.caption}}</li>
 
 {% endfor %} 
+<form action="{% url "read_later" %}" method="post">
+    {% csrf_token %}
+    <input type="text" hidden value="{{post.id}}" name="post_id">
+    {% if is_saved %}
+    <input type="submit" value="Remove from read later">
+    {% else %}
+    <input type="submit" value="Add to read later">
+    {% endif %}
+</form>
 <h2>Comments</h2>
 {% for comment in comments %}
 <p>{{comment.text}}</p>

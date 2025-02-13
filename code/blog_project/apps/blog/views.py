@@ -34,24 +34,23 @@ class Details(View):
     #     context["tags"] = self.object.tags.all()
     #     context["comment_form"] = CommentModelForm
     #     return context
-
     def get(self, request, slug):
         # post = get_object_or_ 404(Post, {"slug": slug})
         post = Post.objects.get(slug=slug)
-        return render(
-            request,
-            "details_post.html",
-            {
-                "post": post,
-                "tags": post.tags.all(),
-                "comment_form": CommentModelForm(),
-                "comments": post.comments.all(),
-            },
-        )
+        context = {
+            "post": post,
+            "tags": post.tags.all(),
+            "comment_form": CommentModelForm(),
+            "comments": post.comments.all(),
+            "is_saved": self.isStoragePost(request, post.id),
+        }
+
+        return render(request, "details_post.html", context)
 
     def post(self, request, slug):
         form = CommentModelForm(request.POST)
         post = Post.objects.get(slug=slug)
+
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
@@ -65,8 +64,14 @@ class Details(View):
                 "tags": post.tags.all(),
                 "comment_form": CommentModelForm(),
                 "comments": post.comments.all(),
+                "is_saved": self.isStoragePost(request, post.id),
             },
         )
+
+    def isStoragePost(self, request, id):
+        read_later = request.session.get("stored_read_later")
+        print(id in read_later)
+        return id in read_later
 
 
 class AllBlogs(ListView):
@@ -83,5 +88,34 @@ class AllBlogs(ListView):
     #     return render(request, "all_blogs.html", {"posts": posts})
 
 
-class RegisterComment(View):
-    pass
+import json
+
+
+class ReadLaterView(View):
+    def get(self, request):
+        read_later = request.session.get("stored_read_later")
+        print(json.dumps(read_later))
+        context = {}
+        if read_later is None or len(read_later) == 0:
+            context["posts"] = []
+            context["has_posts"] = False
+        else:
+            posts = Post.objects.filter(id__in=read_later)
+            context["posts"] = posts
+            context["has_posts"] = False
+        return render(request, "read_later.html", context)
+
+    def post(self, request):
+        if request.POST["post_id"]:
+            print("entro")
+            id = int(request.POST["post_id"])
+            read_later = request.session.get("stored_read_later")
+            if read_later == None:
+                read_later = []
+            if id not in read_later:
+                read_later.append(id)
+            else:
+                read_later.remove(id)
+            request.session["stored_read_later"] = read_later
+            print(json.dumps(read_later))
+        return HttpResponseRedirect("/")
