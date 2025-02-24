@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Details{% endblock title %}
+
+
+{% block content %}
+
+<h1>{{resource.name}}</h1>
+
+
+<img src="{{resource.img.url}}" alt="Imaxen de {{resource.name}}">
+
+<form method='POST' action="{% url "objects:process_marker" %}">
+    {% csrf_token %}
+    <input type="number" name='id' hidden=true value={{resource.id}}>
+    <input type="submit" value="Add to markers">
+</form>
+<a href="{% url "objects:forms:update" %}"><button>Modify</button></a>
+<a href="{% url "objects:forms:delete" %}"><button>Delete</button></a>
+{% endblock content %}

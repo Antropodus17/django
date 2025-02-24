@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Satisfactory{% endblock title %}
+
+{% block content %}
+<h1>Welcome to Satisfactory Calculator</h1>
+
+
+<section><a href="{% url "objects:list" %}">Resources</a></section>
+<section><a href="{% url "calculator:list" %}">Calculators</a></section>
+{% endblock content %}
