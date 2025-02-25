@@ -15,6 +15,6 @@
     <input type="number" name='id' hidden=true value={{resource.id}}>
     <input type="submit" value="Add to markers">
 </form>
-<a href="{% url "objects:forms:update" %}"><button>Modify</button></a>
-<a href="{% url "objects:forms:delete" %}"><button>Delete</button></a>
+<a href="{% url "objects:forms:update" resource.id %}"><button>Modify</button></a>
+<a href="{% url "objects:forms:delete" resource.id %}"><button>Delete</button></a>
 {% endblock content %}

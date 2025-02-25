@@ -6,6 +6,6 @@ app_name = "forms"
 
 urlpatterns = [
     path("add/", views.ResourceCreateView.as_view(), name="create"),
-    path("delete/", views.ResourceDeleteView.as_view(), name="delete"),
-    path("update/", views.ResourceUpdateView.as_view(), name="update"),
+    path("delete/<int:pk>", views.ResourceDeleteView.as_view(), name="delete"),
+    path("update/<int:pk>", views.ResourceUpdateView.as_view(), name="update"),
 ]

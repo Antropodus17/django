@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Forms{% endblock title %}
+
+{% block content %}
+    <form method="POST" action="/forms/add/" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% for field in form %}
+            {{field.label}}:
+            <br>{{field}}
+            <hr>
+            <br>
+        {% endfor %}
+
+        <input type="submit" value="Send data">
+    </form>
+{% endblock content %}

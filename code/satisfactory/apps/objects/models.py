@@ -13,3 +13,6 @@ class Resource(models.Model):
     name = models.CharField(max_length=50, unique=True)
     img = models.ImageField(upload_to="resources")
     messure = models.IntegerField(default=Messure.UDS, choices=Messure.choices)
+
+    def __str__(self):
+        return f"{self.name}"

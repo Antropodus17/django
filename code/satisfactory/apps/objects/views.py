@@ -26,6 +26,11 @@ class ObjectsList(ListView):
     model = Resource
     context_object_name = "resources"
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context["markers"] = self.request.session.get("markers_resources")
+        return context
+
 
 class DetailsView(DetailView):
     template_name = "apps/objects_details.html"
@@ -43,5 +48,6 @@ class ProcessMarker(View):
             markers.remove(id)
         else:
             markers.append(id)
+        print(markers)
         request.session["markers_resources"] = markers
         return HttpResponseRedirect(request.META["HTTP_REFERER"])

@@ -4,26 +4,41 @@
 {% block title %}Resources List{% endblock title %}
 
 
+{% block scripts %}
+<script src="{% static "scripts/filterMarkers.js" %}" defer></script>
+{% endblock scripts %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "styles/resourceList.css" %}">
+
+{% endblock styles %}
+
 {% block content %}
 
 <h1>Resources list</h1>
-
-<section>
+{{markers}}
+<select name="filter" id="resourceFilter">
+    <option value="false" selected>All</option>
+    <option value="true">Markers</option>
+</select>
+<section id="list">
     {% for resource in resources %}
-    <a href="{% url "objects:details" resource.id %}">
+    <a href="{% url "objects:details" resource.id %}" 
+    {% if resource.id in markers %}
+    data-marked="true"
+    {% else %}
+    data-marked="false"
+    {% endif %}
+    >
+            <article>
+                <h2>{{resource.name}}</h2>
+                <img src="{{resource.img.url}}" alt="Imaxen de {{resource.name}}">
+            </article>
+        </a>
 
-        <article>
-            <h2>{{resource.name}}</h2>
-            <img src="{{resource.img.url}}" alt="Imaxen de {{resource.name}}">
-            {% if resource.id in markers %}
-            <p>Marker: true</p>
-            {% else %}
-            <p>Marker: false</p>
-            {% endif %}
-        </article>
-    </a>
-    
-    {% endfor %}
+        {% endfor %}
 </section>
+
+<a href="{% url "objects:forms:create" %}"><button>Add new resource</button></a>
 
 {% endblock content %}
