@@ -10,6 +10,6 @@ urlpatterns = [
     path("list/", views.ObjectsList.as_view(), name="list"),
     path("details/<int:pk>", views.DetailsView.as_view(), name="details"),
     path("process/marker/", views.ProcessMarker.as_view(), name="process_marker"),
-    # I MADE AN FOLD TO SAVE ALL THE FORMS INFORMATION, LIKE URLS AND VIEWS
+    # I MADE AN FOLD/MODULE TO SAVE ALL THE FORMS INFORMATION, LIKE URLS AND VIEWS
     path("forms/", include(urls)),
 ]

@@ -4,6 +4,7 @@
 
 {% block content %}
     <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
         <p>Are you sure to delete {{object}}</p>
 
         <input type="submit" value="Confirm">

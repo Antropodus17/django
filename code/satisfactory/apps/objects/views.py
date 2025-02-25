@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import ListView, DetailView
 from django.views import View
 from django.http import HttpResponseRedirect
 
@@ -10,30 +10,34 @@ from .models import Resource
 
 
 # def home(request):
-#     return render(request, "apps/home.html")
+#     return render(request, "apps/objects/home.html")
 
 
 class HomeView(View):
     def get(self, request):
-        return render(request, "apps/home.html")
+        return render(request, "apps/objects/home.html")
 
     def post(self, request):
-        return render(request, "apps/home.html")
+        return render(request, "apps/objects/home.html")
 
 
 class ObjectsList(ListView):
-    template_name = "apps/objects_list.html"
+    template_name = "apps/objects/objects_list.html"
     model = Resource
     context_object_name = "resources"
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context["markers"] = self.request.session.get("markers_resources")
+        markers = self.request.session.get("markers_resources")
+        new_markers = []
+        for mark in markers:
+            new_markers.append(int(mark))
+        context["markers"] = new_markers
         return context
 
 
 class DetailsView(DetailView):
-    template_name = "apps/objects_details.html"
+    template_name = "apps/objects/objects_details.html"
     model = Resource
     context_object_name = "resource"
 
