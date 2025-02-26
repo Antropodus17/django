@@ -1,5 +1,11 @@
-@Mon Feb 24 08:38:48 UTC 2025
+@Wed Feb 26 08:34:22 UTC 2025
 from django.contrib import admin
+from .models import Resource
 
 # Register your models here.
+
+class ResourceAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(Resource, ResourceAdmin)
 %

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Recipes{% endblock title %}
+
+
+{% block content %}
+
+<h1>{{resource.name}}</h1>
+
+<table>
+    <thead>
+        <th>Resource</th>
+        <th>Amount</th>
+        <th>Unit</th>
+    </thead>
+    <tbody>
+        {% for recipe in recipes %}
+        <tr data-id="{{recipe.id}}">
+            <td>
+                <a href="{% url "objects:details" recipe.id_needed_resource.id %}">
+                    {{recipe.id_needed_resource.name}}
+                </a>
+            </td>
+                <td>{{recipe.cuantity}}</td>
+                {% if recipe.id_needed_resource.messure == 0 %}
+                <td>{{messure.0}}</td>
+                {% else %}
+                <td>{{messure.1}}</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+    </tbody>
+</table>
+
+
+
+{% endblock content %}

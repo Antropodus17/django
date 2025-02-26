@@ -17,4 +17,10 @@
 </form>
 <a href="{% url "objects:forms:update" resource.id %}"><button>Modify</button></a>
 <a href="{% url "objects:forms:delete" resource.id %}"><button>Delete</button></a>
+
+
+
+<a href="{% url "objects:recipe" resource.id%}"><button>
+    Recipes
+</button></a>
 {% endblock content %}

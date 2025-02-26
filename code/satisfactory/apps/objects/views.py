@@ -4,7 +4,7 @@ from django.views import View
 from django.http import HttpResponseRedirect
 
 
-from .models import Resource
+from .models import *
 
 # Create your views here.
 
@@ -55,3 +55,19 @@ class ProcessMarker(View):
         print(markers)
         request.session["markers_resources"] = markers
         return HttpResponseRedirect(request.META["HTTP_REFERER"])
+
+
+class RecipeView(View):
+    def get(self, request, pk):
+        resource = Resource.objects.get(id=pk)
+        recipes = resource.as_crafted_resource.all()
+        context = {
+            "resource": resource,
+            "recipes": recipes,
+            "messure": resource.Messure._member_names_,
+        }
+        # print(resource.Messure._member_names_[0])
+        return render(request, "apps/objects/recipes.html", context)
+        # return HttpResponseRedirect(request.META["HTTP_REFERER"])
+
+    pass

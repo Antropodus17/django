@@ -2,9 +2,6 @@
 FROM python:3.11
 
 
-# RUN apt update && apt install -y nodejs npm
-
-
 
 # Establece el directorio de trabajo dentro del contenedor
 WORKDIR /code

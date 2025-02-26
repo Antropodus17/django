@@ -1,0 +1,22 @@
+{
+	"_generate_next_value_": "<function Enum._generate_next_value_ at 0x7f6e1b9fe840>",
+	"__module__": "apps.objects.models",
+	"_new_member_": "<built-in method __new__ of type object at 0x7f6e1c415720>",
+	"_use_args_": true,
+	"_member_names_": ["UDS", "LTR"],
+	"_member_map_": {
+		"UDS": "Resource.Messure.UDS",
+		"LTR": "Resource.Messure.LTR"
+	},
+	"_value2member_map_": {
+		"0": "Resource.Messure.UDS",
+		"1": "Resource.Messure.LTR"
+	},
+	"_unhashable_values_": [],
+	"_member_type_": "<class \"int\">",
+	"_value_repr_": "<slot wrapper \"__repr__\" of \"int\" objects>",
+	"__doc__": null,
+	"UDS": "Resource.Messure.UDS",
+	"LTR": "Resource.Messure.LTR",
+	"__new__": "<function Enum.__new__ at 0x7f6e1b9fe980>"
+}
