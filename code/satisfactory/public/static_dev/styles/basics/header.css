@@ -1,0 +1,34 @@
+@import "./colors.css";
+
+header {
+	width: 100%;
+	padding-left: 6px;
+	padding-right: 6px;
+	height: 5vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	color: white;
+	background-color: var(--dark-grey);
+	a {
+		color: white;
+		text-decoration: none;
+	}
+	a:hover {
+		color: var(--orange);
+	}
+	nav {
+		min-width: 10%;
+	}
+	ul {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		li::marker {
+			color: var(--dark-grey);
+		}
+	}
+}

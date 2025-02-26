@@ -1,19 +1,32 @@
 {% extends "base.html" %}
+{% load static %}
+
 
 {% block title %}Details{% endblock title %}
+
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "styles/objects/resourceDetails.css" %}">
+
+{% endblock styles %}
 
 
 {% block content %}
 
 <h1>{{resource.name}}</h1>
 
-
 <img src="{{resource.img.url}}" alt="Imaxen de {{resource.name}}">
+
 
 <form method='POST' action="{% url "objects:process_marker" %}">
     {% csrf_token %}
     <input type="number" name='id' hidden=true value={{resource.id}}>
-    <input type="submit" value="Add to markers">
+    {% if marked %}
+        <input type="submit" value="Remove of markers">
+    {% else %}
+        <input type="submit" value="Add to markers">
+    {% endif %}
 </form>
 <a href="{% url "objects:forms:update" resource.id %}"><button>Modify</button></a>
 <a href="{% url "objects:forms:delete" resource.id %}"><button>Delete</button></a>

@@ -28,11 +28,8 @@ class ObjectsList(ListView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        markers = self.request.session.get("markers_resources")
-        new_markers = []
-        for mark in markers:
-            new_markers.append(int(mark))
-        context["markers"] = new_markers
+        markers = getMarkers(self.request)
+        context["markers"] = markers
         return context
 
 
@@ -41,17 +38,29 @@ class DetailsView(DetailView):
     model = Resource
     context_object_name = "resource"
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        markers = getMarkers(self.request)
+        id = self.get_object().id
+
+        if id in markers:
+            marked = True
+        else:
+            marked = False
+        context["marked"] = marked
+        return context
+
 
 class ProcessMarker(View):
     def post(self, request):
-        id = request.POST["id"]
-        markers = request.session.get("markers_resources")
-        if type(markers) == type(None):
-            markers = []
+        id = int(request.POST["id"])
+        print(id)
+        markers = getMarkers(request)
         if id in markers:
             markers.remove(id)
         else:
             markers.append(id)
+        # PRINT THE LIST OF IDS MARKEDS
         print(markers)
         request.session["markers_resources"] = markers
         return HttpResponseRedirect(request.META["HTTP_REFERER"])
@@ -70,4 +79,13 @@ class RecipeView(View):
         return render(request, "apps/objects/recipes.html", context)
         # return HttpResponseRedirect(request.META["HTTP_REFERER"])
 
-    pass
+
+# THIS METHOD IS USED TO BE SURE THAT MARKERS IS INITIALIZATED
+def getMarkers(request):
+    markers = request.session.get("markers_resources")
+    if type(markers) == type(None):
+        markers = []
+    integer_markers = []
+    for mark in markers:
+        integer_markers.append(int(mark))
+    return integer_markers

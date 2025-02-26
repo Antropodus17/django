@@ -1,5 +1,9 @@
 {% extends "base.html" %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static "styles/objects/resourceList.css" %}">
 
+{% endblock styles %}
 {% block title %}Forms{% endblock title %}
 
 {% block content %}

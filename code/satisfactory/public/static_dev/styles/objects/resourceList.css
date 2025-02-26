@@ -1,0 +1,58 @@
+@import "../basics/header.css";
+@import "../basics/main.css";
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: var(--grey);
+}
+
+h1 {
+	margin-bottom: 2%;
+}
+
+main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+main section {
+	margin-top: 2%;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	gap: 25px;
+}
+section > a {
+	color: inherit;
+	width: 20vw;
+	height: 60vh;
+}
+select {
+	width: 4%;
+	height: 7;
+}
+.oculto {
+	display: none;
+}
+
+article {
+	background-color: var(--dark-grey);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	border: 3px solid var(--orange);
+	border-radius: 20px;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.adder {
+	justify-self: flex-end;
+}

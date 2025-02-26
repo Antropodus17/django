@@ -1,6 +1,14 @@
 {% extends "base.html" %}
+{% load static %}
+
 
 {% block title %}Recipes{% endblock title %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "styles/objects/recipesList.css" %}">
+
+{% endblock styles %}
 
 
 {% block content %}
