@@ -1,3 +1,44 @@
 @import "../basics/header.css";
 @import "../basics/main.css";
 @import "../basics/colors.css";
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: stretch;
+}
+main {
+	height: 95vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 2%;
+}
+
+table {
+	height: 15%;
+	background-color: var(--dark-grey);
+	width: 17%;
+
+	text-align: center;
+	border-collapse: collapse;
+	/* border: 3px solid var(--orange); */
+}
+th,
+thead {
+	border: 3px solid var(--dark-grey);
+	background-color: var(--orange);
+	width: 8%;
+}
+tbody td {
+	border: 1px solid var(--grey);
+}
+
+tr:nth-child(even) {
+	background-color: var(--grey);
+	td {
+		border: 1px solid var(--dark-grey);
+	}
+}

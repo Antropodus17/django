@@ -17,7 +17,7 @@ main {
 
 form {
 	min-height: 60%;
-	width: 30%;
+	width: 35%;
 	padding: 4rem;
 	display: flex;
 	flex-direction: column;
@@ -30,10 +30,12 @@ form {
 
 .form-control {
 	font-size: x-large;
+	margin-bottom: 5%;
 }
 
 select {
 	width: 20%;
+	height: 5%;
 }
 
 .error {
