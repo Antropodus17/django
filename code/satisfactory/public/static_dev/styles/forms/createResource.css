@@ -1,0 +1,41 @@
+@import "../basics/header.css";
+@import "../basics/main.css";
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
+main {
+	height: 95vh;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+form {
+	min-height: 60%;
+	width: 30%;
+	padding: 4rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	background-color: var(--dark-grey);
+	border: 3px solid var(--orange);
+	border-radius: 20px;
+}
+
+.form-control {
+	font-size: x-large;
+}
+
+select {
+	width: 20%;
+}
+
+.error {
+	color: red;
+}

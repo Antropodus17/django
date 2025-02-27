@@ -7,21 +7,20 @@ Calculators
 
 {% block content %}
 
-<main>
-    <a href="{% url "calculator:resources" %}">
-        <article id="resources">
-            <h2>Resources</h2>
-            <img src="" alt="Imagen">
-            <p>A page for calculate the resources needed</p>
-        </article>
-    </a>
-    <a href="{% url "calculator:energy" %}">
-        <article id="generators">
-            <h2>Generators</h2>
-            <img src="" alt="Imagen">
-            <p>A page for calculate the generators needed</p>
-        </article>
-    </a>
-</main>
+<a href="{% url "calculator:resources" %}">
+    <article id="resources">
+        <h2>Resources</h2>
+        <img src="" alt="Imagen">
+        <p>A page for calculate the resources needed</p>
+    </article>
+</a>
+<a href="{% url "calculator:energy" %}">
+    <article id="generators">
+        <h2>Generators</h2>
+        <img src="" alt="Imagen">
+        <p>A page for calculate the generators needed</p>
+    </article>
+</a>
+
 
 {% endblock content %}

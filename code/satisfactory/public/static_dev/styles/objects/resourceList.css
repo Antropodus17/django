@@ -5,7 +5,6 @@ body {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	background-color: var(--grey);
 }
 
 h1 {
@@ -14,25 +13,28 @@ h1 {
 
 main {
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	justify-content: space-between;
 	align-items: center;
 	width: 100%;
+	height: 90vh;
 }
-main section {
+main section#list {
 	margin-top: 2%;
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-around;
 	gap: 25px;
+	height: 70%;
 }
-section > a {
+section#list > a {
 	color: inherit;
 	width: 20vw;
-	height: 60vh;
+	min-height: 20vh;
 }
 select {
-	width: 4%;
-	height: 7;
+	width: 30%;
+	height: 120%;
 }
 .oculto {
 	display: none;
@@ -48,11 +50,16 @@ article {
 	border-radius: 20px;
 }
 
-a {
-	color: inherit;
-	text-decoration: none;
-}
-
 .adder {
 	justify-self: flex-end;
+}
+
+section#filterSection {
+	width: 15%;
+	height: max-content;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 5%;
 }

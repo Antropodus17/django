@@ -11,13 +11,7 @@ header {
 	align-items: center;
 	color: white;
 	background-color: var(--dark-grey);
-	a {
-		color: white;
-		text-decoration: none;
-	}
-	a:hover {
-		color: var(--orange);
-	}
+
 	nav {
 		min-width: 10%;
 	}

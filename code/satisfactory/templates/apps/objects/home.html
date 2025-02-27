@@ -13,6 +13,16 @@
 <h1>Welcome to Satisfactory Calculator</h1>
 
 
-<section><a href="{% url "objects:list" %}">Resources</a></section>
-<section><a href="{% url "calculator:list" %}">Calculators</a></section>
+<section>
+    <a href="{% url "objects:list" %}">
+        <article>
+            <h2>Resources</h2>
+        </article>
+    </a>
+    <a href="{% url "calculator:list" %}">
+        <article>
+            <h2>Calculators</h2>
+        </article>
+    </a>
+</section>
 {% endblock content %}

@@ -16,30 +16,31 @@
 {% block content %}
 
 <h1>Resources list</h1>
+<section id="filterSection">
+    <label for="filter">Filter: </label>
+    <select name="filter" id="resourceFilter">
+        <option value="false" selected>All</option>
+        <option value="true">Markers</option>
+    </select>
+</section>
 
-<select name="filter" id="resourceFilter">
-    <option value="false" selected>All</option>
-    <option value="true">Markers</option>
-</select>
-<main>
+<section id="list">
+    {% for resource in resources %}
+    <a href="{% url "objects:details" resource.id %}" 
+    {% if resource.id in markers %}
+    data-marked="true"
+    {% else %}
+    data-marked="false"
+    {% endif %}>
+        <article>
+            <h2>{{resource.name}}</h2>
+            <img src="{{resource.img.url}}" alt="Imaxen de {{resource.name}}">
+        </article>
+    </a>
+    
+    {% endfor %}
+</section>
 
-    <section id="list">
-        {% for resource in resources %}
-        <a href="{% url "objects:details" resource.id %}" 
-        {% if resource.id in markers %}
-        data-marked="true"
-        {% else %}
-        data-marked="false"
-        {% endif %}>
-            <article>
-                <h2>{{resource.name}}</h2>
-                <img src="{{resource.img.url}}" alt="Imaxen de {{resource.name}}">
-            </article>
-        </a>
-        
-        {% endfor %}
-    </section>
-</main>
 
 <a id="adder" href="{% url "objects:forms:create" %}"><button>Add new resource</button></a>
 

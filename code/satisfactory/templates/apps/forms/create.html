@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block styles %}
-<link rel="stylesheet" href="{% static "styles/objects/resourceList.css" %}">
+<link rel="stylesheet" href="{% static "styles/forms/createResource.css" %}">
 
 {% endblock styles %}
 {% block title %}Forms{% endblock title %}
@@ -11,10 +11,11 @@
         {% csrf_token %}
 
         {% for field in form %}
-            {{field.label}}:
-            <br>{{field}}
-            <hr>
-            <br>
+            <div class="form-control{% if field.errors %} error{% endif %}">
+                {{field.label}}:
+            </div>
+                {{field}}
+                {{field.errors}}
         {% endfor %}
 
         <input type="submit" value="Send data">
