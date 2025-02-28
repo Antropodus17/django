@@ -1,5 +1,5 @@
 @import "../basics/header.css";
-@import "../basics/main.css";
+@import "../basics/forms.css";
 
 body {
 	display: flex;
@@ -11,17 +11,19 @@ body {
 main {
 	height: 95vh;
 	display: flex;
-	justify-content: center;
-	align-items: flex-start;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
 }
 
 form {
 	min-height: 60%;
-	width: 35%;
+	min-width: 35%;
 	padding: 4rem;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
+	justify-content: center;
+	gap: 1%;
 	align-items: center;
 	background-color: var(--dark-grey);
 	border: 3px solid var(--orange);
@@ -30,14 +32,32 @@ form {
 
 .form-control {
 	font-size: x-large;
-	margin-bottom: 5%;
+	margin-top: 5%;
 }
 
 select {
-	width: 20%;
-	height: 5%;
+	width: 8vw;
+	height: 3vh;
 }
 
-.error {
-	color: red;
+input[type="text"] {
+	height: 3vh;
+}
+
+#submit {
+	margin-top: 8%;
+	width: 8vw;
+	height: 4vh;
+	background-color: var(--grey);
+	border: 3px solid var(--orange);
+	border-radius: 10px;
+}
+
+#submit:hover {
+	width: calc(8vw + 1vw);
+	height: calc(4vh + 1vh);
+}
+
+hr {
+	width: 100%;
 }

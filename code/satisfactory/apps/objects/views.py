@@ -47,6 +47,7 @@ class DetailsView(DetailView):
         else:
             marked = False
         context["marked"] = marked
+        context["messure"] = Resource.Messure.labels
         return context
 
 
@@ -68,15 +69,15 @@ class ProcessMarker(View):
 class RecipeView(View):
     def get(self, request, pk):
         resource = Resource.objects.get(id=pk)
-        recipes = resource.as_crafted_resource.all()
+        # Recipe.objects.all()
+        recipes = resource.as_crafted_resource.all().order_by("-id_needed_resource")
         context = {
             "resource": resource,
             "recipes": recipes,
             "messure": resource.Messure._member_names_,
         }
-        # print(resource.Messure._member_names_[0])
+        print(context)
         return render(request, "apps/objects/recipes.html", context)
-        # return HttpResponseRedirect(request.META["HTTP_REFERER"])
 
 
 # THIS METHOD IS USED TO BE SURE THAT MARKERS IS INITIALIZATED

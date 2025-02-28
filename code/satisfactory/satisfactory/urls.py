@@ -19,11 +19,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-
+from apps.api import urls as api_urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("apps.objects.urls")),
+    path("api/", include(api_urls)),
     path("calculator/", include("apps.calculators.urls")),
+    path("", include("apps.objects.urls")),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

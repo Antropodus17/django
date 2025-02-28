@@ -3,7 +3,7 @@ from django.urls import path, include  # type:ignore
 from . import views
 from .forms import urls
 from .recipesForm import urls as rec_urls
-from .api import urls as api_urls
+
 
 app_name = "objects"
 
@@ -16,5 +16,4 @@ urlpatterns = [
     path("forms/", include(urls)),
     path("recipes/<int:pk>/", views.RecipeView.as_view(), name="recipe"),
     path("recipes/modify/", include(rec_urls)),
-    path("api/", include(api_urls)),
 ]

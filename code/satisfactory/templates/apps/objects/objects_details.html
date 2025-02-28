@@ -20,6 +20,14 @@
 
 <img src="{{resource.img.url}}" alt="Imaxen de {{resource.name}}">
 
+<section id="messureSection">
+    <span>Units: </span> 
+    {% if resource.messure == 0 %}
+        {{messure.0}}
+    {% else %}
+        {{messure.1}}
+    {% endif %}
+</section>
 
 <form method='POST' action="{% url "objects:process_marker" %}">
     {% csrf_token %}

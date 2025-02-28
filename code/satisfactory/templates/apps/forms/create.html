@@ -18,6 +18,7 @@
                 {{field.errors}}
         {% endfor %}
 
-        <input type="submit" value="Send data">
+        <input id="submit" type="submit" value="Send data">
     </form>
+    <a  href="{% url "objects:list"  %}"><button id="back">Back</button></a>
 {% endblock content %}

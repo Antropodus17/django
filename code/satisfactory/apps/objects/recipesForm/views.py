@@ -13,6 +13,11 @@ class RecipeCreateView(CreateView):
     template_name = "apps/forms/recipe_create.html"
     success_url = "/list"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["resource"] = Resource.objects.get(pk=self.kwargs.get("pk"))
+        return context
+
     def form_valid(self, form):  # DONT ASK DONT TOUCH DONT LOOK, VERY FRAGILE
         form.save(commit=False)
         craft_resource = Resource.objects.get(pk=self.kwargs.get("pk"))

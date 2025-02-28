@@ -1,20 +1,26 @@
-from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponseRedirect, JsonResponse  # type:ignore
 
 from apps.objects.models import *
+from apps.objects.views import getMarkers
+
+
+def markers(request):
+    markers = getMarkers(request)
+    return JsonResponse({"markers": markers})
 
 
 def all(request, object_name):
+    response = {"objects": []}
     if object_name == "resources":
         resources = Resource.objects.all()
-        response = []
         for resource in resources:
-            response.append(Resource2Json(resource))
+            response["objects"].append(Resource2Json(resource))
     elif object_name == "recipes":
         recipes = Recipe.objects.all()
-        response = []
+
         for recipe in recipes:
-            response.append(Recipe2Json(recipe))
-    return JsonResponse(response, safe=False)
+            response["objects"].append(Recipe2Json(recipe))
+    return JsonResponse(response)
 
 
 def details(request, object_name, pk):
@@ -28,7 +34,11 @@ def details(request, object_name, pk):
 
 
 def Resource2Json(resource):
-    return {"id": resource.id, "name": resource.name, "messure": resource.messure}
+    return {
+        "id": resource.id,
+        "name": resource.name,
+        "messure": resource.messure,
+    }
 
 
 def Recipe2Json(recipe):

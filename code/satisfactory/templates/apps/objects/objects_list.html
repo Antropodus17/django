@@ -27,11 +27,8 @@
 <section id="list">
     {% for resource in resources %}
     <a href="{% url "objects:details" resource.id %}" 
-    {% if resource.id in markers %}
-    data-marked="true"
-    {% else %}
-    data-marked="false"
-    {% endif %}>
+        data-id="{{resource.id}}">
+
         <article>
             <h2>{{resource.name}}</h2>
             <img src="{{resource.img.url}}" alt="Imaxen de {{resource.name}}">
@@ -42,6 +39,8 @@
 </section>
 
 
-<a id="adder" href="{% url "objects:forms:create" %}"><button>Add new resource</button></a>
+<a  href="{% url "objects:forms:create" %}">
+    <button id="adder">Add new resource</button>
+</a>
 
 {% endblock content %}

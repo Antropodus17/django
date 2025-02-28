@@ -50,8 +50,20 @@ article {
 	border-radius: 20px;
 }
 
-.adder {
-	justify-self: flex-end;
+#adder {
+	width: 8vw;
+	height: 4vh;
+	background-color: var(--orange);
+	color: white;
+	border: 2px solid var(--dark-grey);
+	border-radius: 10px;
+	opacity: 80%;
+	font-weight: bold;
+}
+#adder:hover {
+	width: 9vw;
+	height: 5vh;
+	opacity: 100%;
 }
 
 section#filterSection {

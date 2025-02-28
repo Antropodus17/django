@@ -11,13 +11,14 @@
         {% csrf_token %}
 
         {% for field in form %}
-            {{field.label}}:
-            <br>{{field}}
-            <hr>
-            <br>
+            <div class="form-control{% if field.errors %} error{% endif %}">
+                {{field.label}}:
+            </div>
+                {{field}}
+                {{field.errors}}
         {% endfor %}
 
-        <input type="submit" value="Send data">
+        <input id="submit" type="submit" value="Send data">
     </form>
-    <a href="{% url "objects:details" object.id %}"><button>Back</button></a>
+    <a  href="{% url "objects:details" object.id %}"><button id="back">Back</button></a>
 {% endblock content %}

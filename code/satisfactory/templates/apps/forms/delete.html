@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block styles %}
-<link rel="stylesheet" href="{% static "styles/resourceList.css" %}">
+<link rel="stylesheet" href="{% static "styles/forms/form.css" %}">
 
 {% endblock styles %}
 {% block title %}Forms{% endblock title %}
@@ -9,9 +9,13 @@
 {% block content %}
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <p>Are you sure to delete {{object}}</p>
+        <p>Are you sure to delete </p>
+        <h1>{{resource.name}}</h1>
 
-        <input type="submit" value="Confirm">
+        <img src="{{resource.img.url}}" alt="Imaxen de {{resource.name}}">
+
+        
+        <input id="submit" type="submit" value="Confirm">
     </form>
-    <a href="{% url "objects:details" object.id %}"><button>Back</button></a>
+    <a  href="{% url "objects:details" object.id %}"><button id="back">Back</button></a>
 {% endblock content %}

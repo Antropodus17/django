@@ -13,7 +13,7 @@ header {
 	background-color: var(--dark-grey);
 
 	nav {
-		min-width: 10%;
+		min-width: 15%;
 	}
 	ul {
 		width: 100%;

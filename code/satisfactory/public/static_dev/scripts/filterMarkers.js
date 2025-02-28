@@ -7,17 +7,22 @@ let filter = document.getElementById("resourceFilter");
  *
  * @param {Event} event
  */
-function filterList(event) {
-	console.log("dentro");
+async function filterList(event) {
+	let respuesta = await fetch("http://localhost:8000/api/markers/", {
+		method: "get",
+		headers: {
+			"Content-Type": "application/json",
+		},
+	}).then((response) => response.json());
 	if (event.target.value === "true") {
 		[...lista.children].forEach((e) => {
-			if (e.dataset.marked === "false") {
+			if (!respuesta.markers.includes(+e.dataset.id)) {
 				e.classList.add("oculto");
 			}
 		});
 	} else {
 		[...lista.children].forEach((e) => {
-			if (e.dataset.marked === "false") {
+			if (e.classList.contains("oculto")) {
 				e.classList.remove("oculto");
 			}
 		});
