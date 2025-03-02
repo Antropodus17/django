@@ -8,7 +8,7 @@ let filter = document.getElementById("resourceFilter");
  * @param {Event} event
  */
 async function filterList(event) {
-	let respuesta = await fetch("http://localhost:8000/api/markers/", {
+	let respuesta = await fetch(`http://${window.data}/api/markers/`, {
 		method: "get",
 		headers: {
 			"Content-Type": "application/json",

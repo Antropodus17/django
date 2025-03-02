@@ -29,6 +29,8 @@ class ObjectsList(ListView):
         context = super().get_context_data(*args, **kwargs)
         markers = getMarkers(self.request)
         context["markers"] = markers
+        origin = self.request.META["HTTP_HOST"]
+        context["origin"] = f"{origin}"
         return context
 
 

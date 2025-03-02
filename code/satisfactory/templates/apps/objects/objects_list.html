@@ -5,6 +5,7 @@
 
 
 {% block scripts %}
+<script>window.data="{{ origin | safe }}"</script>
 <script src="{% static "scripts/filterMarkers.js" %}" defer></script>
 {% endblock scripts %}
 
@@ -14,7 +15,7 @@
 {% endblock styles %}
 
 {% block content %}
-
+{{origin}}
 <h1>Resources list</h1>
 <section id="filterSection">
     <label for="filter">Filter: </label>
