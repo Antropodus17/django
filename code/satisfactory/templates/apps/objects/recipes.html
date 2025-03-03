@@ -4,6 +4,9 @@
 
 {% block title %}Recipes{% endblock title %}
 
+{% block scripts %}
+<script src="{% static "scripts/recipesList.js" %}" defer></script>
+{% endblock scripts %}
 
 {% block styles %}
 <link rel="stylesheet" href="{% static "styles/objects/recipesList.css" %}">
@@ -13,33 +16,58 @@
 
 {% block content %}
 
+{% if recipes|length == 0 %}
+
+
+<h1>This resource don´t have recipes</h1>
+
+{% else %}
+
 <h1>{{resource.name}}</h1>
 
-<table>
+<table id="recipeTable">
     <thead>
-        <th>Resource</th>
-        <th>Amount</th>
-        <th>Unit</th>
+        <tr>
+            <th>Resource</th>
+            <th>Amount</th>
+            <th>Unit</th>
+        </tr>
     </thead>
     <tbody>
         {% for recipe in recipes %}
-        <tr data-id="{{recipe.id}}">
+        <tr data-id="{{recipe.id}}" >
             <td>
                 <a href="{% url "objects:details" recipe.id_needed_resource.id %}">
                     {{recipe.id_needed_resource.name}}
                 </a>
             </td>
-                <td>{{recipe.cuantity}}</td>
-                {% if recipe.id_needed_resource.messure == 0 %}
-                <td>{{messure.0}}</td>
-                {% else %}
-                <td>{{messure.1}}</td>
-                {% endif %}
-            </tr>
-            {% endfor %}
+            <td>{{recipe.cuantity}}</td>
+            {% if recipe.id_needed_resource.messure == 0 %}
+            <td>{{messure.0}}</td>
+            {% else %}
+            <td>{{messure.1}}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
     </tbody>
 </table>
 
+
+
+
+{% endif %}
 <a href="{% url "objects:recipes:create" resource.id%}"><button>Add new needed resource</button></a>
+
+<div id="modify" class="oculto">
+    <a href="{% url "objects:recipes:update" 1 %}"><button>Update</button></a>
+    <a href="{% url "objects:recipes:delete" 1 %}"><button>Delete</button></a>
+</div>
+
+
+<a  href="{% url "objects:details" resource.id %}"><button id="back">Back</button></a>
+
+
+
+
 
 {% endblock content %}

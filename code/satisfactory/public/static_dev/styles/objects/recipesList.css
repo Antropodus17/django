@@ -43,3 +43,7 @@ tr:nth-child(even) {
 		border: 1px solid var(--dark-grey);
 	}
 }
+
+tr.selected {
+	background-color: green;
+}

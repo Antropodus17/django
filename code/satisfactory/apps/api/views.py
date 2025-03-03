@@ -2,6 +2,21 @@ from django.http import HttpResponseRedirect, JsonResponse  # type:ignore
 
 from apps.objects.models import *
 from apps.objects.views import getMarkers
+from apps.calculators.models import Generator
+
+
+def generators(request):
+    generators = Generator.objects.all()
+    response = {"generators": []}
+    for generator in generators:
+        response["generators"].append(Generator2Json(generator))
+    return JsonResponse(response)
+
+
+def generatorDetails(request, pk):
+    generator = Generator.objects.get(pk=pk)
+    response = Generator2Json(generator)
+    return JsonResponse(response)
 
 
 def markers(request):
@@ -47,4 +62,12 @@ def Recipe2Json(recipe):
         "id_craft_resource": Resource2Json(recipe.id_craft_resource),
         "id_needed_resource": Resource2Json(recipe.id_needed_resource),
         "cuantity": recipe.cuantity,
+    }
+
+
+def Generator2Json(generator):
+    return {
+        "id": generator.id,
+        "name": generator.name,
+        "power": generator.power,
     }

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block scripts %}
+<script>window.data = "{{ origin | safe }}"</script>
+<script src="{% static "scripts/generators.js" %}" defer></script>
+{% endblock scripts %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "styles/calculators/energy.css"%}">
+{% endblock styles %}
+
+
+{% block title %}
+Calculators
+{% endblock title %}
+
+{% block content %}
+<form id="generatorForm">
+    <label for="generator">Select the generator to add:</label>
+    <select name="generator">
+        {% for generator in generators %}
+        <option value="{{generator.id}}">{{generator.name}}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <input type="submit" value="Add">
+</form>
+
+<section id="playground">
+
+</section>
+<p class="oculto">Total energy <span id="total"></span> kw/h</p>
+
+
+{% endblock content %}º

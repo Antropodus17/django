@@ -1,4 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "styles/calculators/list.css"%}">
+{% endblock styles %}
+
 
 {% block title %}
 Calculators

@@ -1,8 +1,5 @@
 from django.db import models
 
-
-from apps.objects.models import Resource
-
 # Create your models here.
 
 

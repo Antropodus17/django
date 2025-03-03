@@ -36,9 +36,6 @@ select {
 	width: 30%;
 	height: 120%;
 }
-.oculto {
-	display: none;
-}
 
 article {
 	background-color: var(--dark-grey);

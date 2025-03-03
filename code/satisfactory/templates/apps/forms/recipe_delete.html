@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static "styles/forms/form.css" %}">
+
+{% endblock styles %}
+{% block title %}Forms{% endblock title %}
+
+{% block content %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>Are you sure to delete </p>
+        <p>{{object.id_craft_resource}} needs {{object.cuantity}} of {{object.id_needed_resource}}</p>
+
+        
+        <input id="submit" type="submit" value="Confirm">
+    </form>
+    <a  href="{% url "objects:recipe" object.id_craft_resource.id %}"><button id="back">Back</button></a>
+{% endblock content %}

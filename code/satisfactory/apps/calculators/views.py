@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views import View
 
+from .models import Generator
+
 # Create your views here.
 
 
@@ -13,8 +15,16 @@ class CalculatorList(View):
         return render(request, "apps/calculator/list.html")
 
 
-class EnergyCalculator(TemplateView):
-    pass
+class EnergyCalculator(View):
+    def get(self, request):
+        context = {}
+        context["generators"] = Generator.objects.all()
+        origin = self.request.META["HTTP_HOST"]
+        context["origin"] = f"{origin}"
+        return render(request, "apps/calculator/energy.html", context)
+
+    def post(self, request):
+        self.get(request)
 
 
 class ResourcesCalculator(TemplateView):

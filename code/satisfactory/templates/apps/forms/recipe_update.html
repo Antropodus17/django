@@ -20,5 +20,5 @@
 
         <input id="submit" type="submit" value="Send data">
     </form>
-    <a  href="{% url "objects:recipe" resource.id %}"><button id="back">Back</button></a>
+    <a  href="{% url "objects:recipe" object.id_craft_resource.id %}"><button id="back">Back</button></a>
 {% endblock content %}
