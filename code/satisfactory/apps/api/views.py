@@ -57,7 +57,7 @@ def recipes(request, pk):
     return JsonResponse(context)
 
 
-def Resource2Json(resource):
+def Resource2Json(resource: Resource):
     return {
         "id": resource.id,
         "name": resource.name,
@@ -65,7 +65,7 @@ def Resource2Json(resource):
     }
 
 
-def Recipe2Json(recipe):
+def Recipe2Json(recipe: Recipe):
     return {
         "id": recipe.id,
         "id_craft_resource": Resource2Json(recipe.id_craft_resource),
@@ -74,14 +74,14 @@ def Recipe2Json(recipe):
     }
 
 
-def Recipes2Json(recipes):
+def Recipes2Json(recipes: list[Recipe]):
     total = []
     for recipe in recipes:
         total.append(Recipe2Json(recipe))
     return total
 
 
-def Generator2Json(generator):
+def Generator2Json(generator: Generator):
     return {
         "id": generator.id,
         "name": generator.name,

@@ -10,7 +10,7 @@ let table = document.getElementById("recipeTable");
  */
 function selectElement(event) {
 	event.stopPropagation();
-	event.preventDefault();
+	// event.preventDefault();
 	cleanTable(event.currentTarget);
 	let tr = event.target.closest("tr");
 	if (![...table.tBodies.item(0).children].includes(tr)) {

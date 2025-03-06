@@ -9,4 +9,100 @@
 	padding: 3px;
 	min-width: 5vw;
 	min-height: 5vh;
+	align-content: center;
+	justify-content: center;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
+main {
+	height: 95vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 5vh;
+}
+form {
+	margin-top: 2vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 1vw;
+	width: 25vw;
+	select {
+		height: 3vh;
+		width: 35%;
+	}
+	input {
+		width: 10vw;
+		height: 3vh;
+	}
+}
+#playground {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: center;
+	gap: 3vw;
+}
+
+article {
+	background-color: var(--dark-grey);
+	border: 3px solid var(--orange);
+	border-radius: 20px;
+	width: 40vw;
+	min-height: 50vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 3vh;
+	padding: 3vh;
+	button {
+		width: 8%;
+		height: 8%;
+	}
+}
+
+table {
+	width: 90%;
+	height: max-content;
+	border-collapse: collapse;
+	border: 3px solid var(--grey);
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	tHead {
+		background-color: var(--orange);
+	}
+	tBody > tr {
+		background-color: var(--dark-grey);
+		border: 2px solid var(--grey);
+		td {
+			border-right: 1px solid var(--grey);
+			border-left: 1px solid var(--grey);
+		}
+	}
+	tBody > tr:nth-child(even) {
+		background-color: var(--grey);
+		border: 2px solid var(--dark-grey);
+		td {
+			border-right: 1px solid var(--dark-grey);
+			border-left: 1px solid var(--dark-grey);
+		}
+	}
+	td {
+		align-content: center;
+		text-align: center;
+		align-content: center;
+	}
 }

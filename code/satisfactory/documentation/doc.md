@@ -33,12 +33,41 @@ Also, resources will have relation with itself to know if a resource its crafted
 ### 2. Screen Design
 
 
+In this project, we have like 2 `branch`, one for the storage of the objects information and its update/delete. And the other for make calculous from the storage data.
+
 
 ![Imagen of the screen design](./design/page.png)
 
 
 
+### &ensp;&ensp;&ensp;&ensp;&ensp;2.1 Resources
+
+This `branch` start with a list of the resource created. Here you can access to more details or create another.
+
+FOTO LIS
+
+In the details, you can modify the object, delete it, add it to marks or see the recipes.
+
+
+FOTO DETAILS.
+
+
+In the recipes you have a table with the elements that compound the object and the cuantities. Here you can access the other objects details, create a new entry of the recipes, modify an entry of the recipes or delete an entry of the recipes
+
+FOTO RECIPES
+
+
+
+### &ensp;&ensp;&ensp;&ensp;&ensp;2.2 Calculators 
+
+In this section we have a list of `calculators`
+
+The first one is for resources and calculate the cuantity of resources needed from the recipes.
+
+The other one calculate the amount of energy of the selected generators and its total.
 
 ## Intereseting details
 
 1. The messure field in **Resource**, it`s an enum type
+2. In the objects app, there is a submodule of python dedicated to the forms, with it own urls.py, views.py and the forms.py.
+3. In the resources list, when you change the filter to checkeds, js will make an api request to the server, and it response in a json the resources markers. Also, in the calculators, the js make api request to the django server to take the information of the generators an the recipes of the sources.

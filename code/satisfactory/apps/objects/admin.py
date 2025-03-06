@@ -4,11 +4,18 @@ from .models import Recipe
 
 # Register your models here.
 
+
 class ResourceAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["name"]
+
 
 class RecipeAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["craft_name"]
+
+    @admin.display(ordering="resource__name")
+    def craft_name(self, obj: Recipe):
+        return obj.id_craft_resource.name
+
 
 admin.site.register(Resource, ResourceAdmin)
 admin.site.register(Recipe, RecipeAdmin)

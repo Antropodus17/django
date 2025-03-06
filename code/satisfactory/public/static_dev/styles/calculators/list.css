@@ -1,2 +1,17 @@
 @import "../basics/header.css";
 @import "../basics/main.css";
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
+main {
+	height: 95vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
