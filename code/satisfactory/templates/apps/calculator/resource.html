@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block scripts %}
+<script>window.data = "{{ origin | safe }}"</script>
+<script src="{% static "scripts/resource.js" %}" defer></script>
+{% endblock scripts %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "styles/calculators/resource.css"%}">
+{% endblock styles %}
+
+
+{% block title %}
+Calculators
+{% endblock title %}
+
+{% block content %}
+<form id="resourceForm">
+    <label for="resource">Select the resource:</label>
+    <select name="resource">
+        {% for resource in resources %}
+        <option value="{{resource.id}}">{{resource.name}}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <input type="submit" value="Add">
+</form>
+
+<section id="playground">
+
+</section>
+
+
+{% endblock content %}

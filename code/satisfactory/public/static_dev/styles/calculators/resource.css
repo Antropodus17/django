@@ -1,0 +1,12 @@
+@import "../basics/header.css";
+@import "../basics/main.css";
+
+.result {
+	background-color: var(--orange);
+	color: black;
+	border: 2px solid var(--dark-grey);
+	border-radius: 20px;
+	padding: 3px;
+	min-width: 5vw;
+	min-height: 5vh;
+}

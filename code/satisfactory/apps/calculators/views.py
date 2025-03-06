@@ -3,6 +3,7 @@ from django.views.generic import TemplateView
 from django.views import View
 
 from .models import Generator
+from apps.objects.models import Resource, Recipe
 
 # Create your views here.
 
@@ -28,4 +29,12 @@ class EnergyCalculator(View):
 
 
 class ResourcesCalculator(TemplateView):
-    pass
+    def get(self, request):
+        context = {}
+        context["resources"] = Resource.objects.all()
+        origin = self.request.META["HTTP_HOST"]
+        context["origin"] = f"{origin}"
+        return render(request, "apps/calculator/resource.html", context)
+
+    def post(self, request):
+        return self.get(request)

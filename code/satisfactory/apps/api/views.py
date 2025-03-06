@@ -48,6 +48,15 @@ def details(request, object_name, pk):
     return JsonResponse(response)
 
 
+def recipes(request, pk):
+    resource = Resource.objects.get(pk=pk)
+    recipes = resource.as_crafted_resource.all()
+    context = {}
+    context["resource"] = Resource2Json(resource)
+    context["recipes"] = Recipes2Json(recipes)
+    return JsonResponse(context)
+
+
 def Resource2Json(resource):
     return {
         "id": resource.id,
@@ -63,6 +72,13 @@ def Recipe2Json(recipe):
         "id_needed_resource": Resource2Json(recipe.id_needed_resource),
         "cuantity": recipe.cuantity,
     }
+
+
+def Recipes2Json(recipes):
+    total = []
+    for recipe in recipes:
+        total.append(Recipe2Json(recipe))
+    return total
 
 
 def Generator2Json(generator):
