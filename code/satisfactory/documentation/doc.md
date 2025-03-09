@@ -44,17 +44,16 @@ In this project, we have like 2 `branch`, one for the storage of the objects inf
 
 This `branch` start with a list of the resource created. Here you can access to more details or create another.
 
-FOTO LIS
+![Imagen of the resource list](./media/resource_list.png)
 
 In the details, you can modify the object, delete it, add it to marks or see the recipes.
 
-
-FOTO DETAILS.
+![Imagen of the resource detail](./media/detail_resource.png)
 
 
 In the recipes you have a table with the elements that compound the object and the cuantities. Here you can access the other objects details, create a new entry of the recipes, modify an entry of the recipes or delete an entry of the recipes
 
-FOTO RECIPES
+![Imagen of the resource recipes](./media/recipes.png)
 
 
 
@@ -64,7 +63,11 @@ In this section we have a list of `calculators`
 
 The first one is for resources and calculate the cuantity of resources needed from the recipes.
 
+![Imagen of the resource calculator](./media/resource_calculator.png)
+
 The other one calculate the amount of energy of the selected generators and its total.
+
+![Imagen of the generators calculator](./media/generator_calcularor.png)
 
 ## Intereseting details
 
