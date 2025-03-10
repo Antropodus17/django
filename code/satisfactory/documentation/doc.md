@@ -28,7 +28,7 @@ Also, resources will have relation with itself to know if a resource its crafted
   - Cuantity <small style="color:gray">The unity of the needed resource in the recipe of *needed_resource* per unit of *craft_resource*</small>
   
 
-![image of the Models Relation](./design/modles.png)
+![image of the Models Relation](./media/models.png)
 
 ### 2. Screen Design
 
@@ -36,11 +36,11 @@ Also, resources will have relation with itself to know if a resource its crafted
 In this project, we have like 2 `branch`, one for the storage of the objects information and its update/delete. And the other for make calculous from the storage data.
 
 
-![Imagen of the screen design](./design/page.png)
+![Imagen of the screen design](./media/views.png)
 
 
 
-### &ensp;&ensp;&ensp;&ensp;&ensp;2.1 Resources
+### 2.1 Resources
 
 This `branch` start with a list of the resource created. Here you can access to more details or create another.
 
@@ -57,7 +57,7 @@ In the recipes you have a table with the elements that compound the object and t
 
 
 
-### &ensp;&ensp;&ensp;&ensp;&ensp;2.2 Calculators 
+### 2.2 Calculators 
 
 In this section we have a list of `calculators`
 
